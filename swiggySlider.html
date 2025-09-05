@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Swiggy Slider</title>
+
+    <style>
+
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container{
+            width: 1200px;
+            height: 200px;
+            /* border: 1px solid red; */
+            margin: 80px auto;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .items{
+            width: 100%;
+            transition: 1s;
+        }
+
+        .items img{
+            width: 144px;
+            height: 180px;
+        }
+
+        .btns{
+            text-align: center;
+            
+            
+        }
+
+        .btns button{
+            padding: 15px;
+            background-color: brown;
+            color: white;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="items">
+            <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/8f508de7-e0ac-4ba8-b54d-def9db98959e_Shake.png" alt="">
+        </div>
+
+        <div class="items">
+            <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_Noodles.png" alt="">
+        </div>
+
+        <div class="items">
+            <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/3f2c40d3-96c7-44ce-8b35-aef6ea746cdc_lassi.png" alt="">
+        </div>
+
+        <div class="items">
+            <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/8f508de7-e0ac-4ba8-b54d-def9db98959e_coffee.png" alt="">
+        </div>
+
+        <div class="items">
+            <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_Khichdi.png" alt="">
+        </div>
+
+        <div class="items">
+            <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_Gulab%20jamun.png" alt="">
+        </div>
+
+        <div class="items">
+            <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2025/2/4/2b999748-b33c-4560-a422-e90f3e60a5fb_Poori1.png" alt="">
+        </div>
+
+        <div class="items">
+            <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/cb5669c8-d6f1-46ab-b24d-3da99b9fa32c_tea.png" alt="">
+        </div>
+
+        <div class="items">
+            <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2025/1/24/05a939eb-fd4e-4308-b989-d1c54f4421b3_northindian1.png" alt="">
+        </div>
+
+        <div class="items">
+            <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/8f508de7-e0ac-4ba8-b54d-def9db98959e_Salad-1.png" alt="">
+        </div>
+
+        
+    </div>
+
+    <div class="btns">
+        <button>PREV</button>
+        <button>NEXT</button>
+    </div>
+
+
+    <script>
+        var btn = document.querySelectorAll(".btns button");
+        var item = document.querySelectorAll(".items");
+        var count = 0;
+
+        btn[1].addEventListener(
+            
+            "click",
+            function(){
+                if(item.length-9<count) return
+                count++
+                for(data of item){
+                    data.style.transform = `translateX(-${count*100}%)`
+                }
+            }
+        )
+
+        btn[0].addEventListener(
+            
+            "click",
+            function(){
+                if(count == 0) return
+                count--
+                for(data of item){
+                    data.style.transform = `translateX(-${count*100}%)`
+                }
+            }
+        )
+
+    </script>
+
+    
+
+    
+</body>
+</html>

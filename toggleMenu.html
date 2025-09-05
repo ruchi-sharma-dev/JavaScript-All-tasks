@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Toggle Nav Bar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        header{
+            width: 100%;
+            height: 80px;
+            background-color: teal;
+        }
+
+        nav{
+            width: 20%;
+            height: 100vh;
+            background-color: brown;
+            position: fixed;
+            top: 0;
+            right: -320px;
+            transition: 1s;
+        }
+
+        nav ul li{
+            list-style: none;
+            text-align: center;
+            font-size: 20px;
+            padding: 20px;
+            color: white;
+        }
+
+        header i{
+            color: white;
+            font-size: 30px;
+           padding: 20px;
+        }
+
+        #cross_icon{
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <header>
+        <i onclick="openNav()" class="fa-solid fa-bars" id="bar_icon"></i>
+        <i onclick="closeNav()" class="fa-solid fa-xmark" id="cross_icon"></i>
+        <nav id="navbar">
+            <ul>
+                <li>Home</li>
+                <li>About Us</li>
+                <li>Features</li>
+                <li>Services</li>
+                <li>Contact Us</li>
+                <li>FAQs</li>
+                <li>Career</li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <script>
+
+        var navbar = document.getElementById("navbar");
+        var barIcon = document.getElementById("bar_icon");
+        var crossIcon = document.getElementById("cross_icon");
+        
+        function openNav(){
+            navbar.style.right = "0";
+            barIcon.style.display = "none";
+            crossIcon.style.display = "block"
+
+        }
+
+        function closeNav(){
+            navbar.style.right = "-320px";
+            barIcon.style.display = "block";
+            crossIcon.style.display = "none"
+
+        }
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>

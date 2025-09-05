@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>FAQ</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .container {
+            width: 800px;
+            height: 400px;
+            /* border: 2px solid red; */
+            padding: 10px;
+            margin: 30px auto;
+
+
+        }
+
+        .faq-section {
+            width: 100%;
+            /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+            margin-bottom: 20px;
+            overflow: hidden;
+            
+        }
+
+        .btn {
+            width: 100%;
+            text-align: left;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            background-color: #ff5c8d;
+            color: white;
+
+        }
+
+        .content {
+            height: 0;
+            opacity: 0;
+            /* text-align: justify; */
+            padding: 0;
+            transition: 0.6s;
+            background-color: #524a4e;
+            color: white;
+            
+        }
+
+        .open {
+            height: auto;
+            opacity: 1;
+            padding: 4px;
+            font-size: 14px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="faq-section">
+            <button class="btn">Do you need to pre-book train tickets?</button>
+            <p class="content open ">Yes, it would be highly recommended to book train tickets online in advance.Train seats get filled up very quickly due to peak seasons or high travel demands.</p>
+        </div>
+        <div class="faq-section">
+            <button class="btn">How to cancel train tickets on redRail?</button>
+            <p class="content ">To cancel your train ticket booking, visit the redRail website and go to the "My Bookings" tab. Choose the specific train booking that you want to cancel. Depending on your preference, you can cancel train tickets for all passengers booked under a single PNR or specific passengers. </p>
+        </div>
+        <div class="faq-section">
+            <button class="btn">What is the best time to book train tickets?</button>
+            <p class="content">The best time to book train tickets would be 60 days in advance. According to the new rule, the advance reservation period for booking IRCTC train tickets is reduced from 120 to 60 days. </p>
+        </div>
+    
+    </div>
+
+    <script>
+        var container = document.querySelector(".container");
+        var content = document.querySelectorAll(".content");
+
+        container.addEventListener(
+            "click",
+            function (event) {
+                if (event.target.classList.contains("btn")) {
+                    var currentContent = event.target.nextElementSibling;
+                    content.forEach(
+                        function (p) {
+                            if (p !== currentContent){
+                                p.classList.remove("open")
+                            }
+                        }
+                    )
+                    currentContent.classList.toggle("open")
+                }
+            }
+        )
+
+    </script>
+
+</body>
+
+</html>

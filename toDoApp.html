@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>To-Do App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: teal;
+        }
+
+        .container{
+            width: 800px;
+            height: 500px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            background-color: white;
+            margin: 80px auto;
+            padding: 20px;
+        }
+
+        #inp-btn input{
+            width: 90%;
+            padding: 10px;
+            margin-left: 10px;
+        }
+
+        #inp-btn button{
+            background-color: teal;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        
+        #list {
+            list-style: none;
+        }
+
+        #list li {
+
+            background-color: teal;
+            padding: 10px;
+            position: relative;
+            margin-top: 20px;
+            color: white;
+        }
+
+        #list li i{
+            position: absolute;
+            top: 0;
+            right: 20px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .complete{
+            text-decoration: line-through;
+        }
+
+        
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <div id="inp-btn">
+            <input type="text" id="inp">
+            <button id="btn">Add</button>
+        </div>
+
+        <ul id="list">
+            <!-- <li>Item-1 <i class="fa-solid fa-xmark"></i></li> -->
+        </ul>
+    </div>
+
+
+    <script>
+
+        var inp = document.querySelector("#inp");
+        var btn = document.querySelector("#btn");
+        var list = document.querySelector("#list");
+
+        btn.addEventListener(
+            "click",
+            function(event){
+                if(inp.value == "") return alert ("Atleast one value required")
+                var li = document.createElement("li");
+                li.innerHTML = `<span>${inp.value}</span> <i class="fa-solid fa-xmark"></i>`;
+                list.appendChild(li)
+                inp.value = ""
+
+            }
+        )
+
+        list.addEventListener(
+            "click",
+            removeItem
+        )
+
+        
+            function removeItem(event){
+                if(event.target.tagName == "I"){
+                    event.target.parentElement.remove()
+                }else if (event.target.tagName == "SPAN") {
+                    event.target.parentElement.classList.toggle("complete")
+                }
+
+            }
+        
+
+    </script>
+
+
+    
+</body>
+</html>

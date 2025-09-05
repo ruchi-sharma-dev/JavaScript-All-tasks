@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Slider</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container{
+            width: 1000px;
+            height: 100%;
+            /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+            margin: 100px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            overflow: hidden;
+        }
+
+        .items{
+            transition: 1s ease;
+        }
+
+        .items img{
+            width: 230px;
+            height: 300px;
+            border-radius: 20px;
+        }
+
+        .btn{
+            text-align: center;
+            
+        }
+
+        .btn button{
+            padding: 15px;
+            background-color: brown;
+            color: white;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="items">
+            <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        </div>
+        <div class="items">
+            <img src="https://plus.unsplash.com/premium_photo-1675252369719-dd52bc69c3df?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        </div>
+        <div class="items">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1981&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        </div>
+        <div class="items">
+            <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?q=80&w=1980&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        </div>
+        <div class="items">
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        </div>
+        <div class="items">
+            <img src="https://images.unsplash.com/photo-1484980972926-edee96e0960d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        </div>
+
+    </div>
+    
+        <div class="btn">
+            <button>Prev</button>
+            <button>Next</button>
+        </div>
+
+
+        <script>
+            var btn = document.querySelectorAll("button");
+            var images = document.querySelectorAll(".items");
+            var count = 0;
+            
+            btn[1].addEventListener(
+                "click",
+                function (){
+                    if(images.length-5<count) return
+                    count++
+                    for(data of images){
+                        data.style.transform = `translateX(-${count*100}%)`
+                        
+                    }
+                }
+            )
+
+            btn[0].addEventListener(
+                "click",
+                function (){
+                    if(count === 0) return
+                    count--
+                    for(data of images){
+                        data.style.transform = `translateX(-${count*100}%)`
+                        
+                    }
+                }
+            )
+            
+        </script>
+</body>
+</html>

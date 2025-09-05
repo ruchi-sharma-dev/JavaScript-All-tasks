@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Age calculator</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container{
+            background-color: #fff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        input[type="date"]{
+            padding: 10px 12px;
+            font-size: 16px;
+            border: 2px solid black;
+            border-radius: 10px;
+            width: 100%;
+            margin-bottom: 20px;
+            transition: border 0.3s;
+            cursor: pointer;
+        }
+
+
+        .result-lable{
+            font-size: 16px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        button{
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 100%;
+        }
+
+        button:hover{
+            background-color: #357abd;
+            transform: translateY(-2px);
+        }
+
+        button:active{
+            background-color: #2e6ab3;
+            transform: scale(0.98);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>Enter Date Of Birth</div>
+        <input id="dob" type="date" name="date">
+        <button>Result</button>
+        <div class="result-lable">Your Age is:</div>
+    </div>
+
+    <script>
+        var dob = document.querySelector("#dob");
+        var result = document.querySelector("button");
+        var show = document.querySelector(".result-lable");
+
+        var d = new Date();
+        var ageYear;
+        
+        result.addEventListener(
+            "click",
+            function(){
+                var b = dob.value;
+                var currentD = new Date(b);
+                var month = d.getMonth() - currentD.getMonth();
+                var year = (d.getFullYear() - currentD.getFullYear()) - 1;
+                var day = d.getDate() - currentD.getDate();
+                if(month < 0){
+                    month = month + 12;
+                }else if(month > 0){
+                    year = year + 1;
+                }
+                if(day < 0){
+                    day = day + 31;
+                    month = month - 1;
+                }
+
+                show.textContent = `Your age is: ${year} years ${month} months ${day} days`;
+            }
+        )
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Color Palettes</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .main{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-around;
+            background-color: #fff;
+            padding: 10px;
+        }
+        .box{
+            width: calc(15% - 30px);
+            height: 200px;
+            /* border: 2px solid red; */
+            border-radius: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .overlay{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            
+            transform: scale(0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <div class="main">
+        
+    </div>
+    <div class="overlay">
+        
+    </div>
+    <!-- <audio src=""></audio> -->
+
+
+    <script>
+        var main = document.querySelector(".main");
+        var overlay = document.querySelector(".overlay");
+
+        var message = ["Copied" , "Good job" , "Well Done" , "Nice" , "Great" , "Awesome", "Perfect" , "Superb",
+            "Excellent" , "Fantastic" , "Brilliant" , "Amazing" , "Incredible", "Outstanding" , 'remarkable' ,
+            "Exceptional" , "Impressive" , "Marvelous" , "Stunning"
+        ];
+
+        for (var i= 1; i<=24; i++){
+            var box = document.createElement("div");
+            box.classList.add("box");
+            var r = parseInt(Math.random() * 256).toString(16).padStart(2, "0");
+            var g = parseInt(Math.random() * 256).toString(16).padStart(2, "0");
+            var b = parseInt(Math.random() * 256).toString(16).padStart(2, "0");
+
+            var code = "#" + r + g + b;
+            box.style.backgroundColor = code;
+
+            box.innerText = code;
+
+            main.appendChild(box);
+
+            box.addEventListener(
+                "click",
+                function(event){
+                    overlay.style.transform = "scale(1)";
+                    overlay.style.backgroundColor = event.target.style.backgroundColor;
+                    
+                    overlay.innerText = message[Math.floor(Math.random() * message.length)];
+
+                    setTimeout(
+                        function(){
+                            overlay.style.transform = "scale(0)";
+                        },
+                        1000
+                    )
+                }
+            )
+        }
+    </script>
+</body>
+</html>

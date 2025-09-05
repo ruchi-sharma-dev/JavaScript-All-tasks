@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Greeting card</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .parent {
+            width: 1000px;
+            height: 400px;
+            /* border: 2px solid red; */
+            margin: 70px auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .container {
+            width: 48%;
+            height: 100%;
+            border: 2px double darkcyan;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            padding: 10px;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+
+
+
+        }
+
+        .styling-container {
+            width: 800px;
+            margin: auto;
+            padding: 10px;
+            /* border: 2px solid red; */
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .size {
+            display: flex;
+            gap: 4px;
+        }
+
+        button {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <!-- input container -->
+        <div class="container">
+            <div>
+                <label>To</label>
+                <input onkeyup="greetingCard(this,0)" type="text" placeholder="To" class="inp">
+            </div>
+            <div>
+                <label>From</label>
+                <input onkeyup="greetingCard(this,1)" type="text" placeholder="From" class="inp">
+            </div>
+            <div>
+                <label>Message</label>
+                <textarea onkeyup="greetingCard(this,2)" rows="7" placeholder="Message" cols="8" name="" id=""
+                    class="inp">
+
+                </textarea>
+            </div>
+
+        </div>
+        <div class="container">
+            <h3 class="output">TO:</h2>
+            <h3 class="output">From:</h2>
+            <p class="output">Message:</p>
+
+        </div>
+
+    </div>
+    <div class="styling-container">
+        
+
+        <div>
+            <label for="">Color</label>
+            <input onchange="colorHandler(this.value)" type="color">
+        </div>
+        <div class="size">
+            <button onclick="fontSizeHandler(1)">+</button>
+            <input id="size" value="16px" readonly type="text">
+            <button onclick="fontSizeHandler(2)">-</button>
+        </div>
+
+
+    </div>
+
+    <script>
+
+        var output = document.getElementsByClassName("output");
+        var container = document.getElementsByClassName("container");
+        var size=document.getElementById("size")
+
+        function greetingCard(inp, index) {
+            var message = "";
+            if (index === 0) {
+                message = "To"
+            } else if (index === 1) {
+                message = "From"
+            } else {
+                message = "Message"
+            }
+
+
+            output[index].innerText = `${message}:- ${inp.value}`
+
+        }
+
+        function bgHandler(src) {
+            container[1].style.background = `url(${src})`
+
+        }
+
+        function colorHandler(color) {
+            container[1].style.color = color
+        }
+        var count = 16;
+
+        function fontSizeHandler(index) {
+            if (index === 1) {
+                count++
+            } else {
+                count--
+            }
+            container[1].style.fontSize = count+"px";
+            size.value = count+"px"
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Thumbnail Resize</title>
+
+    <style>
+
+        .container{
+            width: 1000px;
+            height: 700px;
+            /* border: 1px solid green; */
+            margin: 10px auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            
+        }
+
+        #thumbnail{
+            width: 100%;
+            height: 500px;
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            
+            
+        }
+
+        #thumbnail img{
+            width: 100%;
+            height: 500px;
+
+        }
+
+        .bottom_part{
+            display: flex;
+            width: 160px;
+            height: 170px;
+            box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .bottom_part img{
+            width: 160px;
+            height: 170px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="thumbnail">
+            <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        </div>
+
+        <div class="bottom_part">
+            <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+
+            <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+
+            <img src="https://images.unsplash.com/photo-1505820013142-f86a3439c5b2?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+
+            <img src="https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+
+            <img src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+
+            <img src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        </div>
+    </div>
+
+    <script>
+        var thumbnail = document.querySelector("#thumbnail img");
+        var items = document.querySelectorAll(".bottom_part img");
+
+        for(data of items){
+            data.addEventListener(
+                "click",
+                function(event){
+                    thumbnail.src = event.target.src
+                }
+            )
+        }
+    </script>
+    
+</body>
+</html>
